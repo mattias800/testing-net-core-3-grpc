@@ -31,10 +31,10 @@
               </e>
             </e>
             <e p="Events" t="Include">
+              <e p="DeparturePublished.proto" t="Include" />
               <e p="Entities" t="Include">
                 <e p="Departure.proto" t="Include" />
               </e>
-              <e p="PublishDeparture.proto" t="Include" />
             </e>
           </e>
         </e>
@@ -43,11 +43,11 @@
             <e p="netcoreapp3.0" t="Include">
               <e p="Departure.cs" t="Include" />
               <e p="DepartureGrpc.cs" t="Include" />
+              <e p="DeparturePublished.cs" t="Include" />
+              <e p="DeparturePublishedGrpc.cs" t="Include" />
               <e p="Greet.cs" t="Include" />
               <e p="GreetGrpc.cs" t="Include" />
               <e p="Protos.AssemblyInfo.cs" t="Include" />
-              <e p="PublishDeparture.cs" t="Include" />
-              <e p="PublishDepartureGrpc.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -78,11 +78,12 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Domains" t="Include">
           <e p="PublishDeparture" t="Include">
+            <e p="DepartureChangedShipConsumer.cs" t="Include" />
+            <e p="DeparturePublishedConsumer.cs" t="Include" />
             <e p="Entities" t="Include">
               <e p="DepartureEntity.cs" t="Include" />
               <e p="TerminalScheduleVO.cs" t="Include" />
             </e>
-            <e p="PublishDepartureConsumer.cs" t="Include" />
             <e p="Transformers" t="Include">
               <e p="DepartureTransformer.cs" t="Include" />
             </e>
@@ -102,6 +103,7 @@
       </e>
       <e p="TimeTableEventConsumerTests" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="DepartureChangedShipConsumerTests.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.0" t="Include">

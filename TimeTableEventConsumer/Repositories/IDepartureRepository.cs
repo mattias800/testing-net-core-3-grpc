@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using TimeTableEventConsumer.Domain;
+using TimeTableEventConsumer.Domains.PublishDeparture.Entities;
 
 namespace TimeTableEventConsumer.Repositories
 {
@@ -8,6 +8,6 @@ namespace TimeTableEventConsumer.Repositories
         Task StoreNewDeparture(DepartureEntity departure);
         Task UpdateDeparture(DepartureEntity departure);
         Task DeleteDepartureById(string departureId);
-        Task<Departure> FetchDepartureById(string departureId);
+        Task<DepartureEntity> FetchDepartureById(string departureId);
     }
 }

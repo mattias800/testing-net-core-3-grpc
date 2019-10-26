@@ -1,4 +1,6 @@
-namespace TimeTableEventConsumer.Domain.Transformers
+using TimeTableEventConsumer.Domains.PublishDeparture.Entities;
+
+namespace TimeTableEventConsumer.Domains.PublishDeparture.Transformers
 {
     public class DepartureTransformer
     {

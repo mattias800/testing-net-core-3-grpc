@@ -16,7 +16,7 @@
         </Protobuf>
 
         <Protobuf Include="Contracts/Timetable/Events/Entities/Departure.proto" />
-        <Protobuf Include="Contracts/Timetable/Events/PublishDeparture.proto" />
+        <Protobuf Include="Contracts/Timetable/Events/DeparturePublished.proto" />
     </ItemGroup>
 
     <ItemGroup>

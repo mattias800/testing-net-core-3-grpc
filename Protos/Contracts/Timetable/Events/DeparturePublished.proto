@@ -6,6 +6,11 @@ import "Contracts/Timetable/Events/Entities/Departure.proto";
 
 package Timetable.Events;
 
-message PublishDepartureEvent {
+message DeparturePublishedEvent {
     Departure departure = 1;
+}
+
+message DepartureChangedShipEvent {
+    string departureId = 1;
+    string shipCode = 2;
 }

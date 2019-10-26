@@ -1,4 +1,4 @@
-namespace TimeTableEventConsumer.Domain
+namespace TimeTableEventConsumer.Domains.PublishDeparture.Entities
 {
     public class DepartureEntity
     {

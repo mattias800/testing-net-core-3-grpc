@@ -1,8 +1,8 @@
 using Moq;
 using Timetable.Events;
-using TimeTableEventConsumer.Domain;
-using TimeTableEventConsumer.Domain.Transformers;
-using TimeTableEventConsumer.PublishDeparture;
+using TimeTableEventConsumer.Domains.PublishDeparture;
+using TimeTableEventConsumer.Domains.PublishDeparture.Entities;
+using TimeTableEventConsumer.Domains.PublishDeparture.Transformers;
 using TimeTableEventConsumer.Repositories;
 using Xunit;
 
@@ -10,9 +10,9 @@ namespace TimeTableEventConsumerTests
 {
     public class PublishDepartureConsumerTest
     {
-        private PublishDepartureEvent createPublishDepartureEvent()
+        private DeparturePublishedEvent createDeparturePublishedEvent()
         {
-            return new PublishDepartureEvent()
+            return new DeparturePublishedEvent()
             {
                 Departure = new Departure()
                 {
@@ -39,13 +39,13 @@ namespace TimeTableEventConsumerTests
         }
 
         [Fact]
-        public async void PublishDeparture_Cause_Add_Call_To_Repo()
+        public async void DeparturePublished_Cause_Add_Call_To_Repo()
         {
             var departureRepositoryMock = new Mock<IDepartureRepository>();
-            var p = new PublishDepartureConsumer(departureRepositoryMock.Object, new DepartureTransformer());
+            var p = new DeparturePublishedConsumer(departureRepositoryMock.Object, new DepartureTransformer());
 
             // Act
-            await p.handleEvent(createPublishDepartureEvent());
+            await p.HandleEvent(createDeparturePublishedEvent());
 
             // Assert
             departureRepositoryMock.Verify(repository => repository.StoreNewDeparture(It.IsAny<DepartureEntity>()),
