@@ -1,26 +1,26 @@
 using System.Threading.Tasks;
 using Timetable.Events;
-using TimeTableEventConsumer.Domain.Transformers;
+using TimeTableEventConsumer.Domains.PublishDeparture.Transformers;
 using TimeTableEventConsumer.Repositories;
 
-namespace TimeTableEventConsumer.PublishDeparture
+namespace TimeTableEventConsumer.Domains.PublishDeparture
 {
-    public class PublishDepartureConsumer
+    public class DeparturePublishedConsumer
     {
         private readonly IDepartureRepository _departureRepository;
         private readonly DepartureTransformer _departureTransformer;
 
-        public PublishDepartureConsumer(IDepartureRepository departureRepository,
+        public DeparturePublishedConsumer(IDepartureRepository departureRepository,
             DepartureTransformer departureTransformer)
         {
             _departureRepository = departureRepository;
             _departureTransformer = departureTransformer;
         }
 
-        public Task handleEvent(PublishDepartureEvent publishDepartureEvent)
+        public Task HandleEvent(DeparturePublishedEvent departurePublishedEvent)
         {
             var departure =
-                _departureTransformer.transformEventDepartureToDepartureEntity(publishDepartureEvent.Departure);
+                _departureTransformer.transformEventDepartureToDepartureEntity(departurePublishedEvent.Departure);
             return _departureRepository.StoreNewDeparture(departure);
         }
     }
