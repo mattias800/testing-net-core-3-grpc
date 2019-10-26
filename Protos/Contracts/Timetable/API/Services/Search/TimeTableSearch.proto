@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "../../Entities/departure.proto";
+
+message SearchTimeTableInput {
+    repeated FromToTerminals terminals = 1;
+    string startDate = 2; // yyyy-MM-dd
+    string endDate = 3; // yyyy-MM-dd
+}
+
+message FromToTerminals {
+    string fromTerminalCode = 1;
+    string toTerminalCode = 2;
+}
+
+message SearchTimeTableResponse {
+    repeated Departure departures = 1;
+}

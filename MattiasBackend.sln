@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleDraftService", "Sch
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protos", "Protos\Protos.csproj", "{F7BA0ED8-5FBA-4992-AEC6-0917003E32F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTableEventConsumer", "TimeTableEventConsumer\TimeTableEventConsumer.csproj", "{A81119C1-50AE-44AF-8F73-1342F562E832}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTableEventConsumerTests", "TimeTableEventConsumerTests\TimeTableEventConsumerTests.csproj", "{3526C327-9F3C-429F-9A16-8CEC939DCAAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{F7BA0ED8-5FBA-4992-AEC6-0917003E32F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7BA0ED8-5FBA-4992-AEC6-0917003E32F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7BA0ED8-5FBA-4992-AEC6-0917003E32F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A81119C1-50AE-44AF-8F73-1342F562E832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A81119C1-50AE-44AF-8F73-1342F562E832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A81119C1-50AE-44AF-8F73-1342F562E832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A81119C1-50AE-44AF-8F73-1342F562E832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3526C327-9F3C-429F-9A16-8CEC939DCAAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3526C327-9F3C-429F-9A16-8CEC939DCAAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3526C327-9F3C-429F-9A16-8CEC939DCAAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3526C327-9F3C-429F-9A16-8CEC939DCAAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

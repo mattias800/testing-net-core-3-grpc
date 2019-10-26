@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+message Departure {
+    string id = 1;
+    string shipCode = 2;
+    TerminalSchedule departureSchedule = 3;
+    TerminalSchedule arrivalSchedule = 4;
+    string loadingTime = 5;
+    string rampTime = 6;
+}
+
+message TerminalSchedule {
+    string terminalCode = 1;
+    string plannedTime = 2;
+    string estimatedTime = 3;
+    string actualTime = 4;
+}

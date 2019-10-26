@@ -1,31 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.2.0/build/netcoreapp1.0" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.reporters.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.utility.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
     <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_MattiasBackend.-437014402.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_MattiasBackend.51939969.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="MattiasBackend.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="Protos" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="common" t="Include">
-          <e p="greet.proto" t="Include" />
+        <e p="Contracts" t="Include">
+          <e p="common" t="Include">
+            <e p="greet.proto" t="Include" />
+          </e>
+          <e p="Timetable" t="Include">
+            <e p="API" t="Include">
+              <e p="Entities" t="Include">
+                <e p="Departure.proto" t="Include" />
+              </e>
+              <e p="Services" t="Include">
+                <e p="Search" t="Include">
+                  <e p="TimeTableSearch.proto" t="Include" />
+                  <e p="TimeTableSearchService.proto" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="Events" t="Include">
+              <e p="Entities" t="Include">
+                <e p="Departure.proto" t="Include" />
+              </e>
+              <e p="PublishDeparture.proto" t="Include" />
+            </e>
+          </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.0" t="Include">
+              <e p="Departure.cs" t="Include" />
+              <e p="DepartureGrpc.cs" t="Include" />
               <e p="Greet.cs" t="Include" />
               <e p="GreetGrpc.cs" t="Include" />
               <e p="Protos.AssemblyInfo.cs" t="Include" />
-              <e p="Schedule-draft-service-rootGrpc.cs" t="Include" />
-              <e p="ScheduleDraftServiceRoot.cs" t="Include" />
+              <e p="PublishDeparture.cs" t="Include" />
+              <e p="PublishDepartureGrpc.cs" t="Include" />
             </e>
           </e>
         </e>
         <e p="Protos.csproj" t="IncludeRecursive" />
-        <e p="schedule-draft-service" t="Include">
-          <e p="schedule-draft-service-root.proto" t="Include" />
-        </e>
       </e>
       <e p="ScheduleDraftService" t="IncludeRecursive">
         <e p="appsettings.Development.json" t="Include" />
@@ -47,6 +73,44 @@
           <e p="GreeterService.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
+      </e>
+      <e p="TimeTableEventConsumer" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Domains" t="Include">
+          <e p="PublishDeparture" t="Include">
+            <e p="Entities" t="Include">
+              <e p="DepartureEntity.cs" t="Include" />
+              <e p="TerminalScheduleVO.cs" t="Include" />
+            </e>
+            <e p="PublishDepartureConsumer.cs" t="Include" />
+            <e p="Transformers" t="Include">
+              <e p="DepartureTransformer.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.0" t="Include">
+              <e p="TimeTableEventConsumer.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Repositories" t="Include">
+          <e p="IDepartureRepository.cs" t="Include" />
+        </e>
+        <e p="TimeTableEventConsumer.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="TimeTableEventConsumerTests" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.0" t="Include">
+              <e p="TimeTableEventConsumerTests.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="PublishDepartureConsumerTest.cs" t="Include" />
+        <e p="TimeTableEventConsumerTests.csproj" t="IncludeRecursive" />
       </e>
     </e>
   </component>

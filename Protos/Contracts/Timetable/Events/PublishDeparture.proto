@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option csharp_namespace = "Timetable.Events";
+
+import "Contracts/Timetable/Events/Entities/Departure.proto";
+
+package Timetable.Events;
+
+message PublishDepartureEvent {
+    Departure departure = 1;
+}
