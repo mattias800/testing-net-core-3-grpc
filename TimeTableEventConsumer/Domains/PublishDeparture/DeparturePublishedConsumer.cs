@@ -21,7 +21,7 @@ namespace TimeTableEventConsumer.Domains.PublishDeparture
         {
             var departure =
                 _departureTransformer.transformEventDepartureToDepartureEntity(departurePublishedEvent.Departure);
-            return _departureRepository.StoreNewDeparture(departure);
+            return _departureRepository.Insert(departure);
         }
     }
 }

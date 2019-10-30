@@ -36,8 +36,8 @@ namespace TimeTableEventConsumerTests
             
             var departureRepositoryMock = new Mock<IDepartureRepository>();
             var p = new DepartureChangedShipConsumer(departureRepositoryMock.Object);
-            departureRepositoryMock.Setup(repository => repository.FetchDepartureById("123"))
-                .ReturnsAsync(departureBeforeUpdate);
+            departureRepositoryMock.Setup(repository => repository.FetchByIds(new [] { "123"} ))
+                .ReturnsAsync(new [] { departureBeforeUpdate });
 
             // Act
             await p.HandleEvent(new DepartureChangedShipEvent()
@@ -48,7 +48,7 @@ namespace TimeTableEventConsumerTests
 
             // Assert
             departureRepositoryMock.Verify(
-                repository => repository.UpdateDeparture(It.Is<DepartureEntity>(entity =>
+                repository => repository.Update(It.Is<DepartureEntity>(entity =>
                     entity.Id == "123" && entity.ShipCode == "BANAN")),
                 Times.Once());
 

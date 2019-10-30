@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using Timetable.Events;
 using TimeTableEventConsumer.Repositories;
@@ -15,9 +16,10 @@ namespace TimeTableEventConsumer.Domains.PublishDeparture
 
         public async Task HandleEvent(DepartureChangedShipEvent depEvent)
         {
-            var dep = await _departureRepository.FetchDepartureById(depEvent.DepartureId);
+            var depList = await _departureRepository.FetchByIds(new [] { depEvent.DepartureId });
+            var dep = depList.First();
             dep.ShipCode = depEvent.ShipCode;
-            await _departureRepository.UpdateDeparture(dep);
+            await _departureRepository.Update(dep);
         }
     }
 }

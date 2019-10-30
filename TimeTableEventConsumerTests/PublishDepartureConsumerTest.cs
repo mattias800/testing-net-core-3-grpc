@@ -48,7 +48,7 @@ namespace TimeTableEventConsumerTests
             await p.HandleEvent(createDeparturePublishedEvent());
 
             // Assert
-            departureRepositoryMock.Verify(repository => repository.StoreNewDeparture(It.IsAny<DepartureEntity>()),
+            departureRepositoryMock.Verify(repository => repository.Insert(It.IsAny<DepartureEntity>()),
                 Times.Once());
             departureRepositoryMock.VerifyNoOtherCalls();
         }
