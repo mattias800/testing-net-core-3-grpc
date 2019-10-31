@@ -6,7 +6,7 @@ namespace TimeTableEventConsumer.Domains.PublishDeparture.Entities
         public string ShipCode { get; set; }
         public TerminalScheduleVO DepartureSchedule { get; set; }
         public TerminalScheduleVO ArrivalSchedule { get; set; }
-        public string LoadingTime { get; set; }
-        public string RampTime { get; set; }
+        public LocalDateTime LoadingTime { get; set; }
+        public LocalDateTime RampTime { get; set; }
     }
 }

@@ -33,11 +33,11 @@ namespace TimeTableEventConsumerTests
                     TerminalCode = "GOT"
                 }
             };
-            
+
             var departureRepositoryMock = new Mock<IDepartureRepository>();
             var p = new DepartureChangedShipConsumer(departureRepositoryMock.Object);
-            departureRepositoryMock.Setup(repository => repository.FetchByIds(new [] { "123"} ))
-                .ReturnsAsync(new [] { departureBeforeUpdate });
+            departureRepositoryMock.Setup(repository => repository.FetchByIds(new[] {"123"}))
+                .ReturnsAsync(new[] {departureBeforeUpdate});
 
             // Act
             await p.HandleEvent(new DepartureChangedShipEvent()
@@ -51,7 +51,6 @@ namespace TimeTableEventConsumerTests
                 repository => repository.Update(It.Is<DepartureEntity>(entity =>
                     entity.Id == "123" && entity.ShipCode == "BANAN")),
                 Times.Once());
-
         }
     }
 }

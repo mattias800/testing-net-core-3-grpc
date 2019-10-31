@@ -5,13 +5,18 @@ message Departure {
     string shipCode = 2;
     TerminalSchedule departureSchedule = 3;
     TerminalSchedule arrivalSchedule = 4;
-    string loadingTime = 5;
-    string rampTime = 6;
+    LocalDateTime loadingTime = 5;
+    LocalDateTime rampTime = 6;
 }
 
 message TerminalSchedule {
     string terminalCode = 1;
-    string plannedTime = 2;
-    string estimatedTime = 3;
-    string actualTime = 4;
+    LocalDateTime plannedTime = 2;
+    LocalDateTime estimatedTime = 3;
+    LocalDateTime actualTime = 4;
+}
+
+message LocalDateTime {
+    int32 time = 1; // Ex: 625 for 6:25
+    string date = 2; // yyyy-MM-dd
 }
