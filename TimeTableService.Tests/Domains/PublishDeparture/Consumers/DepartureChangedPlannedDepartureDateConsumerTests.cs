@@ -1,3 +1,4 @@
+using System;
 using Moq;
 using Timetable.Events;
 using TimeTableEventConsumer.Domains.PublishDeparture.Consumers;
@@ -49,7 +50,7 @@ namespace TimeTableEventConsumerTests.Domains.PublishDeparture.Consumers
             // Assert
             departureRepositoryMock.Verify(
                 repository => repository.Update(It.Is<DepartureEntity>(entity =>
-                    entity.Id == "123" && entity.DepartureSchedule.PlannedTime.Date == "2019-01-01")),
+                    entity.Id == "123" && entity.DepartureSchedule.PlannedTime.Date.Equals(new DateTime(2019, 1, 1)))),
                 Times.Once());
         }
 

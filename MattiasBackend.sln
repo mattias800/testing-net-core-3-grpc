@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleDraftService", "ScheduleDraftService\ScheduleDraftService.csproj", "{11F27672-D92D-4C59-8CA5-63D633983B6D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTableService.API", "TimeTableService.API\TimeTableService.API.csproj", "{11F27672-D92D-4C59-8CA5-63D633983B6D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protos", "Protos\Protos.csproj", "{F7BA0ED8-5FBA-4992-AEC6-0917003E32F2}"
 EndProject
@@ -9,6 +9,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTableService.Tests", "TimeTableService.Tests\TimeTableService.Tests.csproj", "{3526C327-9F3C-429F-9A16-8CEC939DCAAA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTableService.DataLayer.InMemory", "TimeTableService.DataLayer.InMemory\TimeTableService.DataLayer.InMemory.csproj", "{0930EB30-DE1A-4EDD-BB05-D2A3903C73B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTableService.DataLayer.InMemory.Tests", "TimeTableService.DataLayer.InMemory.Tests\TimeTableService.DataLayer.InMemory.Tests.csproj", "{59065A6E-5BEA-4F8C-B0FC-CF4E33865BB6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +38,9 @@ Global
 		{0930EB30-DE1A-4EDD-BB05-D2A3903C73B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0930EB30-DE1A-4EDD-BB05-D2A3903C73B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0930EB30-DE1A-4EDD-BB05-D2A3903C73B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59065A6E-5BEA-4F8C-B0FC-CF4E33865BB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59065A6E-5BEA-4F8C-B0FC-CF4E33865BB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59065A6E-5BEA-4F8C-B0FC-CF4E33865BB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59065A6E-5BEA-4F8C-B0FC-CF4E33865BB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

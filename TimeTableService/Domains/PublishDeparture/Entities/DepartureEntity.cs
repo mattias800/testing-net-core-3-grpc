@@ -1,3 +1,5 @@
+using System;
+
 namespace TimeTableEventConsumer.Domains.PublishDeparture.Entities
 {
     public class DepartureEntity

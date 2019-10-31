@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Timetable.Events;
+using TimeTableEventConsumer.Common.Util.DateFormat;
 using TimeTableEventConsumer.Repositories;
 
 namespace TimeTableEventConsumer.Domains.PublishDeparture.Consumers
@@ -18,7 +19,7 @@ namespace TimeTableEventConsumer.Domains.PublishDeparture.Consumers
         {
             var depList = await _departureRepository.FetchByIds(new[] {depEvent.DepartureId});
             var dep = depList.First();
-            dep.ArrivalSchedule.PlannedTime.Date = depEvent.Date;
+            dep.ArrivalSchedule.PlannedTime.Date = DateParser.ParseDate(depEvent.Date);
             await _departureRepository.Update(dep);
         }
     }

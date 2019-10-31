@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -34,9 +35,17 @@ namespace TimeTableService.DataLayer.Repositories
             return Task.CompletedTask;
         }
 
-        public Task<IEnumerable<DepartureEntity>> FetchByIds(string[] departureIds)
+        public Task<IEnumerable<DepartureEntity>> FetchByIds(IEnumerable<string> departureIds)
         {
             return Task.FromResult(departureIds.Select(id => _departures.Find(d => d.Id == id)));
+        }
+
+        public Task<IEnumerable<DepartureEntity>> SearchByPlannedDepartureDate(DateTime startDate, DateTime endDate)
+        {
+            var list = _departures.Where(d => 
+                d.DepartureSchedule.PlannedTime.Date >= startDate.Date &&
+                d.DepartureSchedule.PlannedTime.Date <= endDate.Date);
+            return Task.FromResult(list);
         }
     }
 }
