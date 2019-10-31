@@ -15,21 +15,21 @@ namespace TimeTableEventConsumerTests
             var departureBeforeUpdate = new DepartureEntity()
             {
                 Id = "123",
-                LoadingTime = "12:00",
-                RampTime = "13:00",
+                LoadingTime = new LocalDateTimeVO() {Time = 1200},
+                RampTime = new LocalDateTimeVO() {Time = 1300},
                 ShipCode = "DANICA",
                 DepartureSchedule = new TerminalScheduleVO()
                 {
-                    ActualTime = "12:00",
-                    EstimatedTime = "12:00",
-                    PlannedTime = "",
+                    ActualTime = new LocalDateTimeVO() {Time = 1200},
+                    EstimatedTime = new LocalDateTimeVO() {Time = 1200},
+                    PlannedTime = new LocalDateTimeVO() {Time = 0,},
                     TerminalCode = "GOT"
                 },
                 ArrivalSchedule = new TerminalScheduleVO()
                 {
-                    ActualTime = "12:00",
-                    EstimatedTime = "12:00",
-                    PlannedTime = "",
+                    ActualTime = new LocalDateTimeVO() {Time = 1200},
+                    EstimatedTime = new LocalDateTimeVO() {Time = 1200},
+                    PlannedTime = new LocalDateTimeVO() {Time = 0},
                     TerminalCode = "GOT"
                 }
             };

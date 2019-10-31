@@ -2,10 +2,11 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.0</TargetFramework>
+        <RootNamespace>TimeTableService.DataLayer</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Protos\Protos.csproj" />
+      <ProjectReference Include="..\TimeTableService\TimeTableService.csproj" />
     </ItemGroup>
 
 </Project>

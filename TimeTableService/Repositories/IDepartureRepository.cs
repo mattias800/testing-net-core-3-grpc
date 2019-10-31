@@ -9,6 +9,6 @@ namespace TimeTableEventConsumer.Repositories
         Task Insert(DepartureEntity departure);
         Task Update(DepartureEntity departure);
         Task Delete(string departureId);
-        Task<IEnumerable<DepartureEntity>> FetchByIds(string[] departureId);
+        Task<IEnumerable<DepartureEntity>> FetchByIds(string[] departureIds);
     }
 }

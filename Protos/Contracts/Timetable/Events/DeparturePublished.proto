@@ -15,22 +15,22 @@ message DepartureChangedShipEvent {
     string shipCode = 2;
 }
 
-message DepartureChangedDepartureTimeEvent {
+message DepartureChangedPlannedDepartureTimeEvent {
     string departureId = 1;
     int32 time = 2; // Ex: 625 for 6:25
 }
 
-message DepartureChangedDepartureDateEvent {
+message DepartureChangedPlannedDepartureDateEvent {
     string departureId = 1;
     string date = 2; // yyyy-MM-dd
 }
 
-message DepartureChangedArrivalTimeEvent {
+message DepartureChangedPlannedArrivalTimeEvent {
     string departureId = 1;
     int32 time = 2; // Ex: 625 for 6:25
 }
 
-message DepartureChangedArrivalDateEvent {
+message DepartureChangedPlannedArrivalDateEvent {
     string departureId = 1;
     string date = 2; // yyyy-MM-dd
 }

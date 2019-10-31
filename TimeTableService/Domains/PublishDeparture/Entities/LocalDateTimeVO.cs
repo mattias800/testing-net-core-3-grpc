@@ -1,6 +1,6 @@
 namespace TimeTableEventConsumer.Domains.PublishDeparture.Entities
 {
-    public class LocalDateTime
+    public class LocalDateTimeVO
     {
         public int Time { get; set; }
         
