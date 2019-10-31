@@ -2,7 +2,7 @@ using AutoMapper;
 using TimeTableEventConsumer.Domains.PublishDeparture.Profiles;
 using Xunit;
 
-namespace TimeTableEventConsumerTests
+namespace TimeTableEventConsumerTests.Domains.PublishDeparture.Profiles
 {
     public class DepartureProfileTests
     {

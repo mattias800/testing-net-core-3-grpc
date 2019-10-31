@@ -1,13 +1,13 @@
 using AutoMapper;
 using Moq;
 using Timetable.Events;
-using TimeTableEventConsumer.Domains.PublishDeparture;
+using TimeTableEventConsumer.Domains.PublishDeparture.Consumers;
 using TimeTableEventConsumer.Domains.PublishDeparture.Entities;
 using TimeTableEventConsumer.Domains.PublishDeparture.Profiles;
 using TimeTableEventConsumer.Repositories;
 using Xunit;
 
-namespace TimeTableEventConsumerTests
+namespace TimeTableEventConsumerTests.Domains.PublishDeparture.Consumers
 {
     public class PublishDepartureConsumerTest
     {

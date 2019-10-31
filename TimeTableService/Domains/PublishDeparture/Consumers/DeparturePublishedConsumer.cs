@@ -4,7 +4,7 @@ using Timetable.Events;
 using TimeTableEventConsumer.Domains.PublishDeparture.Entities;
 using TimeTableEventConsumer.Repositories;
 
-namespace TimeTableEventConsumer.Domains.PublishDeparture
+namespace TimeTableEventConsumer.Domains.PublishDeparture.Consumers
 {
     public class DeparturePublishedConsumer
     {

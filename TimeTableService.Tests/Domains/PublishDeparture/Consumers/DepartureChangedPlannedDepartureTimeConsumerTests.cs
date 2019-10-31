@@ -1,16 +1,16 @@
 using Moq;
 using Timetable.Events;
-using TimeTableEventConsumer.Domains.PublishDeparture;
+using TimeTableEventConsumer.Domains.PublishDeparture.Consumers;
 using TimeTableEventConsumer.Domains.PublishDeparture.Entities;
 using TimeTableEventConsumer.Repositories;
 using Xunit;
 
-namespace TimeTableEventConsumerTests
+namespace TimeTableEventConsumerTests.Domains.PublishDeparture.Consumers
 {
-    public class DepartureChangedPlannedDepartureDateConsumerTests
+    public class DepartureChangedPlannedDepartureTimeConsumerTests
     {
         [Fact]
-        public async void DepartureChangedDepartureDateEvent_Causes_Update_Call_To_Repo()
+        public async void DepartureChangedDepartureTimeEvent_Causes_Update_Call_To_Repo()
         {
             var departureBeforeUpdate = new DepartureEntity()
             {
@@ -35,21 +35,21 @@ namespace TimeTableEventConsumerTests
             };
 
             var departureRepositoryMock = new Mock<IDepartureRepository>();
-            var p = new DepartureChangedPlannedDepartureDateConsumer(departureRepositoryMock.Object);
+            var p = new DepartureChangedPlannedDepartureTimeConsumer(departureRepositoryMock.Object);
             departureRepositoryMock.Setup(repository => repository.FetchByIds(new[] {"123"}))
                 .ReturnsAsync(new[] {departureBeforeUpdate});
 
             // Act
-            await p.HandleEvent(new DepartureChangedPlannedDepartureDateEvent()
+            await p.HandleEvent(new DepartureChangedPlannedDepartureTimeEvent()
             {
                 DepartureId = "123",
-                Date = "2019-01-01"
+                Time = 625
             });
 
             // Assert
             departureRepositoryMock.Verify(
                 repository => repository.Update(It.Is<DepartureEntity>(entity =>
-                    entity.Id == "123" && entity.DepartureSchedule.PlannedTime.Date == "2019-01-01")),
+                    entity.Id == "123" && entity.DepartureSchedule.PlannedTime.Time == 625)),
                 Times.Once());
         }
 

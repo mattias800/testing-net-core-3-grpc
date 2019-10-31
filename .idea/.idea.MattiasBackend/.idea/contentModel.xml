@@ -78,12 +78,14 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Domains" t="Include">
           <e p="PublishDeparture" t="Include">
-            <e p="DepartureChangedPlannedArrivalDateConsumer.cs" t="Include" />
-            <e p="DepartureChangedPlannedArrivalTimeConsumer.cs" t="Include" />
-            <e p="DepartureChangedPlannedDepartureDateConsumer.cs" t="Include" />
-            <e p="DepartureChangedPlannedDepartureTimeConsumer.cs" t="Include" />
-            <e p="DepartureChangedShipConsumer.cs" t="Include" />
-            <e p="DeparturePublishedConsumer.cs" t="Include" />
+            <e p="Consumers" t="Include">
+              <e p="DepartureChangedPlannedArrivalDateConsumer.cs" t="Include" />
+              <e p="DepartureChangedPlannedArrivalTimeConsumer.cs" t="Include" />
+              <e p="DepartureChangedPlannedDepartureDateConsumer.cs" t="Include" />
+              <e p="DepartureChangedPlannedDepartureTimeConsumer.cs" t="Include" />
+              <e p="DepartureChangedShipConsumer.cs" t="Include" />
+              <e p="DeparturePublishedConsumer.cs" t="Include" />
+            </e>
             <e p="Entities" t="Include">
               <e p="DepartureEntity.cs" t="Include" />
               <e p="LocalDateTimeVO.cs" t="Include" />
@@ -91,9 +93,6 @@
             </e>
             <e p="Profiles" t="Include">
               <e p="DepartureProfile.cs" t="Include" />
-            </e>
-            <e p="Transformers" t="Include">
-              <e p="DepartureTransformer.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -125,12 +124,21 @@
       </e>
       <e p="TimeTableService.Tests" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="DepartureChangedPlannedArrivalDateConsumerTests.cs" t="Include" />
-        <e p="DepartureChangedPlannedArrivalTimeConsumerTests.cs" t="Include" />
-        <e p="DepartureChangedPlannedDepartureDateConsumerTests.cs" t="Include" />
-        <e p="DepartureChangedPlannedDepartureTimeConsumerTests.cs" t="Include" />
-        <e p="DepartureChangedShipConsumerTests.cs" t="Include" />
-        <e p="DepartureProfileTests.cs" t="Include" />
+        <e p="Domains" t="Include">
+          <e p="PublishDeparture" t="Include">
+            <e p="Consumers" t="Include">
+              <e p="DepartureChangedPlannedArrivalDateConsumerTests.cs" t="Include" />
+              <e p="DepartureChangedPlannedArrivalTimeConsumerTests.cs" t="Include" />
+              <e p="DepartureChangedPlannedDepartureDateConsumerTests.cs" t="Include" />
+              <e p="DepartureChangedPlannedDepartureTimeConsumerTests.cs" t="Include" />
+              <e p="DepartureChangedShipConsumerTests.cs" t="Include" />
+              <e p="PublishDepartureConsumerTests.cs" t="Include" />
+            </e>
+            <e p="Profiles" t="Include">
+              <e p="DepartureProfileTests.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.0" t="Include">
@@ -138,7 +146,6 @@
             </e>
           </e>
         </e>
-        <e p="PublishDepartureConsumerTests.cs" t="Include" />
         <e p="TimeTableService.Tests.csproj" t="IncludeRecursive" />
       </e>
     </e>

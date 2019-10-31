@@ -1,16 +1,16 @@
 using Moq;
 using Timetable.Events;
-using TimeTableEventConsumer.Domains.PublishDeparture;
+using TimeTableEventConsumer.Domains.PublishDeparture.Consumers;
 using TimeTableEventConsumer.Domains.PublishDeparture.Entities;
 using TimeTableEventConsumer.Repositories;
 using Xunit;
 
-namespace TimeTableEventConsumerTests
+namespace TimeTableEventConsumerTests.Domains.PublishDeparture.Consumers
 {
-    public class DepartureChangedPlannedArrivalDateConsumerTests
+    public class DepartureChangedPlannedDepartureDateConsumerTests
     {
         [Fact]
-        public async void DepartureChangedPlannedArrivalDateEvent_Causes_Update_Call_To_Repo()
+        public async void DepartureChangedDepartureDateEvent_Causes_Update_Call_To_Repo()
         {
             var departureBeforeUpdate = new DepartureEntity()
             {
@@ -35,12 +35,12 @@ namespace TimeTableEventConsumerTests
             };
 
             var departureRepositoryMock = new Mock<IDepartureRepository>();
-            var p = new DepartureChangedPlannedArrivalDateConsumer(departureRepositoryMock.Object);
+            var p = new DepartureChangedPlannedDepartureDateConsumer(departureRepositoryMock.Object);
             departureRepositoryMock.Setup(repository => repository.FetchByIds(new[] {"123"}))
                 .ReturnsAsync(new[] {departureBeforeUpdate});
 
             // Act
-            await p.HandleEvent(new DepartureChangedPlannedArrivalDateEvent()
+            await p.HandleEvent(new DepartureChangedPlannedDepartureDateEvent()
             {
                 DepartureId = "123",
                 Date = "2019-01-01"
@@ -49,7 +49,7 @@ namespace TimeTableEventConsumerTests
             // Assert
             departureRepositoryMock.Verify(
                 repository => repository.Update(It.Is<DepartureEntity>(entity =>
-                    entity.Id == "123" && entity.ArrivalSchedule.PlannedTime.Date == "2019-01-01")),
+                    entity.Id == "123" && entity.DepartureSchedule.PlannedTime.Date == "2019-01-01")),
                 Times.Once());
         }
 
