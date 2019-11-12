@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Threading.Tasks;
-using TimeTableEventConsumer.Domains.PublishDeparture.Entities;
+using TimeTableService.Domains.PublishDeparture.Entities;
 
-namespace TimeTableEventConsumer.Repositories
+namespace TimeTableService.Repositories
 {
     public interface IDepartureRepository
     {

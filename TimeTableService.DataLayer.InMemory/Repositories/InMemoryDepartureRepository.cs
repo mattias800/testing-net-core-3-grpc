@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TimeTableEventConsumer.Domains.PublishDeparture.Entities;
-using TimeTableEventConsumer.Repositories;
+using TimeTableService.Domains.PublishDeparture.Entities;
+using TimeTableService.Repositories;
 
 namespace TimeTableService.DataLayer.Repositories
 {

@@ -1,7 +1,7 @@
 using AutoMapper;
-using TimeTableEventConsumer.Domains.PublishDeparture.Entities;
+using TimeTableService.Domains.PublishDeparture.Entities;
 
-namespace TimeTableEventConsumer.Domains.PublishDeparture.Profiles
+namespace TimeTableService.Domains.PublishDeparture.Profiles
 {
     public class DepartureProfile : Profile
     {

@@ -1,9 +1,9 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Timetable.Events;
-using TimeTableEventConsumer.Repositories;
+using TimeTableService.Repositories;
 
-namespace TimeTableEventConsumer.Domains.PublishDeparture.Consumers
+namespace TimeTableService.Domains.PublishDeparture.Consumers
 {
     public class DepartureChangedShipConsumer
     {

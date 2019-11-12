@@ -1,7 +1,7 @@
 using System;
 using System.Globalization;
 
-namespace TimeTableEventConsumer.Common.Util.DateFormat
+namespace TimeTableService.Common.Util.DateFormat
 {
     public class DateParser
     {

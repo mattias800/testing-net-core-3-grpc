@@ -1,10 +1,10 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Timetable.Events;
-using TimeTableEventConsumer.Common.Util.DateFormat;
-using TimeTableEventConsumer.Repositories;
+using TimeTableService.Common.Util.DateFormat;
+using TimeTableService.Repositories;
 
-namespace TimeTableEventConsumer.Domains.PublishDeparture.Consumers
+namespace TimeTableService.Domains.PublishDeparture.Consumers
 {
     public class DepartureChangedPlannedArrivalDateConsumer
     {

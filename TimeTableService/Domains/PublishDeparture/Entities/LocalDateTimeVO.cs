@@ -1,6 +1,6 @@
 using System;
 
-namespace TimeTableEventConsumer.Domains.PublishDeparture.Entities
+namespace TimeTableService.Domains.PublishDeparture.Entities
 {
     public class LocalDateTimeVO
     {

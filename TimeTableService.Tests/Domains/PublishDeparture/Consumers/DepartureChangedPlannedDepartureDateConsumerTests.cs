@@ -1,17 +1,17 @@
 using System;
 using Moq;
 using Timetable.Events;
-using TimeTableEventConsumer.Domains.PublishDeparture.Consumers;
-using TimeTableEventConsumer.Domains.PublishDeparture.Entities;
-using TimeTableEventConsumer.Repositories;
+using TimeTableService.Domains.PublishDeparture.Consumers;
+using TimeTableService.Domains.PublishDeparture.Entities;
+using TimeTableService.Repositories;
 using Xunit;
 
-namespace TimeTableEventConsumerTests.Domains.PublishDeparture.Consumers
+namespace TimeTableService.Tests.Domains.PublishDeparture.Consumers
 {
     public class DepartureChangedPlannedDepartureDateConsumerTests
     {
         [Fact]
-        public async void DepartureChangedDepartureDateEvent_Causes_Update_Call_To_Repo()
+        public async void DepartureChangedPlannedDepartureDateEvent_Causes_Update_Call_To_Repo()
         {
             var departureBeforeUpdate = new DepartureEntity()
             {
@@ -23,7 +23,7 @@ namespace TimeTableEventConsumerTests.Domains.PublishDeparture.Consumers
                 {
                     ActualTime = new LocalDateTimeVO() {Time = 1200},
                     EstimatedTime = new LocalDateTimeVO() {Time = 1200},
-                    PlannedTime = new LocalDateTimeVO() {Time = 0,},
+                    PlannedTime = new LocalDateTimeVO() {Time = 0},
                     TerminalCode = "GOT"
                 },
                 ArrivalSchedule = new TerminalScheduleVO()
@@ -53,6 +53,5 @@ namespace TimeTableEventConsumerTests.Domains.PublishDeparture.Consumers
                     entity.Id == "123" && entity.DepartureSchedule.PlannedTime.Date.Equals(new DateTime(2019, 1, 1)))),
                 Times.Once());
         }
-
     }
 }

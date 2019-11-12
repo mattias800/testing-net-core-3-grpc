@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using AutoMapper;
 using Timetable.Events;
-using TimeTableEventConsumer.Domains.PublishDeparture.Entities;
-using TimeTableEventConsumer.Repositories;
+using TimeTableService.Domains.PublishDeparture.Entities;
+using TimeTableService.Repositories;
 
-namespace TimeTableEventConsumer.Domains.PublishDeparture.Consumers
+namespace TimeTableService.Domains.PublishDeparture.Consumers
 {
     public class DeparturePublishedConsumer
     {

@@ -1,8 +1,8 @@
 using AutoMapper;
-using TimeTableEventConsumer.Domains.PublishDeparture.Profiles;
+using TimeTableService.Domains.PublishDeparture.Profiles;
 using Xunit;
 
-namespace TimeTableEventConsumerTests.Domains.PublishDeparture.Profiles
+namespace TimeTableService.Tests.Domains.PublishDeparture.Profiles
 {
     public class DepartureProfileTests
     {

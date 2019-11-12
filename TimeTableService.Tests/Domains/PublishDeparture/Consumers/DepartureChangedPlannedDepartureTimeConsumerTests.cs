@@ -1,11 +1,11 @@
 using Moq;
 using Timetable.Events;
-using TimeTableEventConsumer.Domains.PublishDeparture.Consumers;
-using TimeTableEventConsumer.Domains.PublishDeparture.Entities;
-using TimeTableEventConsumer.Repositories;
+using TimeTableService.Domains.PublishDeparture.Consumers;
+using TimeTableService.Domains.PublishDeparture.Entities;
+using TimeTableService.Repositories;
 using Xunit;
 
-namespace TimeTableEventConsumerTests.Domains.PublishDeparture.Consumers
+namespace TimeTableService.Tests.Domains.PublishDeparture.Consumers
 {
     public class DepartureChangedPlannedDepartureTimeConsumerTests
     {
