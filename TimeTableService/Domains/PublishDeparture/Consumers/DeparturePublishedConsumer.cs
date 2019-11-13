@@ -19,9 +19,9 @@ namespace TimeTableService.Domains.PublishDeparture.Consumers
             _mapper = mapper;
         }
 
-        public Task HandleEvent(DeparturePublishedEvent departurePublishedEvent)
+        public Task HandleEvent(DepartureCreated departureCreatedEvent)
         {
-            var departure = _mapper.Map<Departure, DepartureEntity>(departurePublishedEvent.Departure);
+            var departure = _mapper.Map<Departure, DepartureEntity>(departureCreatedEvent.Departure);
             return _departureRepository.Insert(departure);
         }
     }

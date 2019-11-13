@@ -7,10 +7,10 @@ using Xunit;
 
 namespace TimeTableService.Tests.Domains.PublishDeparture.Consumers
 {
-    public class DepartureChangedPlannedDepartureTimeConsumerTests
+    public class DeparturesShipUpdatedConsumerTests
     {
         [Fact]
-        public async void DepartureChangedDepartureTimeEvent_Causes_Update_Call_To_Repo()
+        public async void Event_Causes_Update_Call_To_Repo()
         {
             var departureBeforeUpdate = new DepartureEntity()
             {
@@ -35,23 +35,22 @@ namespace TimeTableService.Tests.Domains.PublishDeparture.Consumers
             };
 
             var departureRepositoryMock = new Mock<IDepartureRepository>();
-            var p = new DepartureChangedPlannedDepartureTimeConsumer(departureRepositoryMock.Object);
+            var p = new DeparturesShipUpdatedConsumer(departureRepositoryMock.Object);
             departureRepositoryMock.Setup(repository => repository.FetchByIds(new[] {"123"}))
                 .ReturnsAsync(new[] {departureBeforeUpdate});
 
             // Act
-            await p.HandleEvent(new DepartureChangedPlannedDepartureTimeEvent()
+            await p.HandleEvent(new DeparturesShipUpdated()
             {
                 DepartureId = "123",
-                Time = 625
+                ShipCode = "BANAN"
             });
 
             // Assert
             departureRepositoryMock.Verify(
                 repository => repository.Update(It.Is<DepartureEntity>(entity =>
-                    entity.Id == "123" && entity.DepartureSchedule.PlannedTime.Time == 625)),
+                    entity.Id == "123" && entity.ShipCode == "BANAN")),
                 Times.Once());
         }
-
     }
 }

@@ -1,24 +1,25 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Timetable.Events;
+using TimeTableService.Common.Util.DateFormat;
 using TimeTableService.Repositories;
 
 namespace TimeTableService.Domains.PublishDeparture.Consumers
 {
-    public class DepartureChangedPlannedDepartureTimeConsumer
+    public class DeparturesPlannedDepartureDateUpdatedConsumer
     {
         private readonly IDepartureRepository _departureRepository;
 
-        public DepartureChangedPlannedDepartureTimeConsumer(IDepartureRepository departureRepository)
+        public DeparturesPlannedDepartureDateUpdatedConsumer(IDepartureRepository departureRepository)
         {
             _departureRepository = departureRepository;
         }
 
-        public async Task HandleEvent(DepartureChangedPlannedDepartureTimeEvent depEvent)
+        public async Task HandleEvent(DeparturesPlannedDepartureDateUpdated depEvent)
         {
             var depList = await _departureRepository.FetchByIds(new[] {depEvent.DepartureId});
             var dep = depList.First();
-            dep.DepartureSchedule.PlannedTime.Time = depEvent.Time;
+            dep.DepartureSchedule.PlannedTime.Date = DateParser.ParseDate(depEvent.Date);
             await _departureRepository.Update(dep);
         }
     }

@@ -1,3 +1,4 @@
+using System;
 using Moq;
 using Timetable.Events;
 using TimeTableService.Domains.PublishDeparture.Consumers;
@@ -7,10 +8,10 @@ using Xunit;
 
 namespace TimeTableService.Tests.Domains.PublishDeparture.Consumers
 {
-    public class DepartureChangedPlannedArrivalTimeConsumerTests
+    public class DeparturesPlannedArrivalDateUpdatedConsumerTests
     {
         [Fact]
-        public async void DepartureChangedDepartureTimeEvent_Causes_Update_Call_To_Repo()
+        public async void Event_Causes_Update_Call_To_Repo()
         {
             var departureBeforeUpdate = new DepartureEntity()
             {
@@ -35,21 +36,21 @@ namespace TimeTableService.Tests.Domains.PublishDeparture.Consumers
             };
 
             var departureRepositoryMock = new Mock<IDepartureRepository>();
-            var p = new DepartureChangedPlannedArrivalTimeConsumer(departureRepositoryMock.Object);
+            var p = new DeparturesPlannedArrivalDateUpdatedConsumer(departureRepositoryMock.Object);
             departureRepositoryMock.Setup(repository => repository.FetchByIds(new[] {"123"}))
                 .ReturnsAsync(new[] {departureBeforeUpdate});
 
             // Act
-            await p.HandleEvent(new DepartureChangedPlannedArrivalTimeEvent()
+            await p.HandleEvent(new DeparturesPlannedArrivalDateUpdated()
             {
                 DepartureId = "123",
-                Time = 625
+                Date = "2019-01-01"
             });
 
             // Assert
             departureRepositoryMock.Verify(
                 repository => repository.Update(It.Is<DepartureEntity>(entity =>
-                    entity.Id == "123" && entity.ArrivalSchedule.PlannedTime.Time == 625)),
+                    entity.Id == "123" && entity.ArrivalSchedule.PlannedTime.Date.Equals(new DateTime(2019, 1, 1)))),
                 Times.Once());
         }
 

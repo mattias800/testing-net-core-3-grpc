@@ -1,4 +1,3 @@
-using System;
 using Moq;
 using Timetable.Events;
 using TimeTableService.Domains.PublishDeparture.Consumers;
@@ -8,10 +7,10 @@ using Xunit;
 
 namespace TimeTableService.Tests.Domains.PublishDeparture.Consumers
 {
-    public class DepartureChangedPlannedDepartureDateConsumerTests
+    public class DeparturesPlannedArrivalTimeUpdatedConsumerTests
     {
         [Fact]
-        public async void DepartureChangedPlannedDepartureDateEvent_Causes_Update_Call_To_Repo()
+        public async void Event_Causes_Update_Call_To_Repo()
         {
             var departureBeforeUpdate = new DepartureEntity()
             {
@@ -23,7 +22,7 @@ namespace TimeTableService.Tests.Domains.PublishDeparture.Consumers
                 {
                     ActualTime = new LocalDateTimeVO() {Time = 1200},
                     EstimatedTime = new LocalDateTimeVO() {Time = 1200},
-                    PlannedTime = new LocalDateTimeVO() {Time = 0},
+                    PlannedTime = new LocalDateTimeVO() {Time = 0,},
                     TerminalCode = "GOT"
                 },
                 ArrivalSchedule = new TerminalScheduleVO()
@@ -36,22 +35,23 @@ namespace TimeTableService.Tests.Domains.PublishDeparture.Consumers
             };
 
             var departureRepositoryMock = new Mock<IDepartureRepository>();
-            var p = new DepartureChangedPlannedDepartureDateConsumer(departureRepositoryMock.Object);
+            var p = new DepartureChangedPlannedArrivalTimeConsumer(departureRepositoryMock.Object);
             departureRepositoryMock.Setup(repository => repository.FetchByIds(new[] {"123"}))
                 .ReturnsAsync(new[] {departureBeforeUpdate});
 
             // Act
-            await p.HandleEvent(new DepartureChangedPlannedDepartureDateEvent()
+            await p.HandleEvent(new DeparturesPlannedArrivalTimeUpdated()
             {
                 DepartureId = "123",
-                Date = "2019-01-01"
+                Time = 625
             });
 
             // Assert
             departureRepositoryMock.Verify(
                 repository => repository.Update(It.Is<DepartureEntity>(entity =>
-                    entity.Id == "123" && entity.DepartureSchedule.PlannedTime.Date.Equals(new DateTime(2019, 1, 1)))),
+                    entity.Id == "123" && entity.ArrivalSchedule.PlannedTime.Time == 625)),
                 Times.Once());
         }
+
     }
 }

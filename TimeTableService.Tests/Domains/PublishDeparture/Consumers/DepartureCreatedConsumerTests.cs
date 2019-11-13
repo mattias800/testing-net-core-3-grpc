@@ -9,11 +9,11 @@ using Xunit;
 
 namespace TimeTableService.Tests.Domains.PublishDeparture.Consumers
 {
-    public class PublishDepartureConsumerTest
+    public class DepartureCreatedConsumerTests
     {
-        private static DeparturePublishedEvent CreateDeparturePublishedEvent()
+        private static DepartureCreated CreateDeparturePublishedEvent()
         {
-            return new DeparturePublishedEvent()
+            return new DepartureCreated()
             {
                 Departure = new Departure()
                 {
@@ -40,7 +40,7 @@ namespace TimeTableService.Tests.Domains.PublishDeparture.Consumers
         }
 
         [Fact]
-        public async void DeparturePublished_Cause_Add_Call_To_Repo()
+        public async void Event_Cause_Add_Call_To_Repo()
         {
             var departureRepositoryMock = new Mock<IDepartureRepository>();
             var mapperConfiguration = new MapperConfiguration(cfg => { cfg.AddProfile<DepartureProfile>(); });

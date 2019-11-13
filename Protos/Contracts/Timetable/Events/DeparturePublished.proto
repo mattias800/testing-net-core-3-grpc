@@ -6,31 +6,31 @@ import "Contracts/Timetable/Events/Entities/Departure.proto";
 
 package Timetable.Events;
 
-message DeparturePublishedEvent {
+message DepartureCreated {
     Departure departure = 1;
 }
 
-message DepartureChangedShipEvent {
+message DeparturesShipUpdated {
     string departureId = 1;
     string shipCode = 2;
 }
 
-message DepartureChangedPlannedDepartureTimeEvent {
+message DeparturesPlannedDepartureTimeUpdated {
     string departureId = 1;
     int32 time = 2; // Ex: 625 for 6:25
 }
 
-message DepartureChangedPlannedDepartureDateEvent {
+message DeparturesPlannedDepartureDateUpdated {
     string departureId = 1;
     string date = 2; // yyyy-MM-dd
 }
 
-message DepartureChangedPlannedArrivalTimeEvent {
+message DeparturesPlannedArrivalTimeUpdated {
     string departureId = 1;
     int32 time = 2; // Ex: 625 for 6:25
 }
 
-message DepartureChangedPlannedArrivalDateEvent {
+message DeparturesPlannedArrivalDateUpdated {
     string departureId = 1;
     string date = 2; // yyyy-MM-dd
 }

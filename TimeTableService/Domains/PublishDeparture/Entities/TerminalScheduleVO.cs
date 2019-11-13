@@ -6,6 +6,5 @@ namespace TimeTableService.Domains.PublishDeparture.Entities
         public LocalDateTimeVO PlannedTime { get; set; }
         public LocalDateTimeVO EstimatedTime { get; set; }
         public LocalDateTimeVO ActualTime { get; set; }
-        
     }
 }

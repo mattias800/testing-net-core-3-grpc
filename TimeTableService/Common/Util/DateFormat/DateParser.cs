@@ -15,13 +15,8 @@ namespace TimeTableService.Common.Util.DateFormat
                 DateTimeStyles.None,
                 out var theDate);
             if (result)
-            {
                 return theDate;
-            }
-            else
-            {
-                throw new FormatException("Invalid date format.");
-            }
+            throw new FormatException("Invalid date format.");
         }
     }
 }

@@ -5,20 +5,20 @@ using TimeTableService.Repositories;
 
 namespace TimeTableService.Domains.PublishDeparture.Consumers
 {
-    public class DepartureChangedShipConsumer
+    public class DepartureChangedPlannedArrivalTimeConsumer
     {
         private readonly IDepartureRepository _departureRepository;
 
-        public DepartureChangedShipConsumer(IDepartureRepository departureRepository)
+        public DepartureChangedPlannedArrivalTimeConsumer(IDepartureRepository departureRepository)
         {
             _departureRepository = departureRepository;
         }
 
-        public async Task HandleEvent(DepartureChangedShipEvent depEvent)
+        public async Task HandleEvent(DeparturesPlannedArrivalTimeUpdated depEvent)
         {
-            var depList = await _departureRepository.FetchByIds(new [] { depEvent.DepartureId });
+            var depList = await _departureRepository.FetchByIds(new[] {depEvent.DepartureId});
             var dep = depList.First();
-            dep.ShipCode = depEvent.ShipCode;
+            dep.ArrivalSchedule.PlannedTime.Time = depEvent.Time;
             await _departureRepository.Update(dep);
         }
     }
